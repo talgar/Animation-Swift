@@ -51,10 +51,10 @@ class ViewController: UIViewController {
         animator = UIDynamicAnimator(referenceView: view)
         
         gravity = UIGravityBehavior()
-        collider = UICollisionBehavior()         // отскакиваие баттонов
+        collider = UICollisionBehavior()         // отскакивание баттонов
         itemBehavior = UIDynamicItemBehavior()
         
-        collider?.translatesReferenceBoundsIntoBoundary = true // баттоны будут отскакивать от стен контроллерв
+        collider?.translatesReferenceBoundsIntoBoundary = true // баттоны будут отскакивать от стен контроллера
         collider?.collisionMode = .everything // объекты будут взаимодействовать со всеми
         
         collider?.addItem(dropViewBTN) // элементы будут соприкасаться и ударяться об dropViewBTN
@@ -63,6 +63,7 @@ class ViewController: UIViewController {
         itemBehavior?.elasticity = 1  // соприкосновение баттонов с друг с другом эффект
         itemBehavior?.friction = 1   // трата энергии баттонов при соприкосновении
         itemBehavior?.allowsRotation = true // элементы смогут вращаться
+
         
         animator?.addBehavior(gravity!)
         animator?.addBehavior(collider!)
@@ -92,7 +93,7 @@ class ViewController: UIViewController {
         closeBTN.isHidden = true
     }
     
-    //MARK: - animation (the view is zooming )
+    //MARK: - animation (the view will zooming )
     @IBAction func startMoovingACt(_ sender: Any) {
         let backgroundColor = animationView.backgroundColor
         let alpha = animationView.alpha
@@ -117,7 +118,7 @@ class ViewController: UIViewController {
         }
     }
     
-    //MARK: - transition (the view will change, turn the rigth left bottom.....)
+    //MARK: - transition (the view will change, flipping from right, left , bottom.....)
     @IBAction func startTransformAct(_ sender: Any) {
         let label = UILabel(frame: CGRect(x: 20, y: 30, width: 100, height: 30))
         label.text = "front side"
